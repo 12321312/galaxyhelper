@@ -52,7 +52,7 @@ bot.on('message', async message => {
 
    if (command) {
     if (message.author.id !== "294844223675564034" && !command.command.enabled) return message.reply("извините. Команда была отключена!");
-    //await message.react(bot.emojis.get("704082713329795163"));
+    await message.react("👍");
    }
    
    try {
