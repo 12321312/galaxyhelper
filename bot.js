@@ -63,14 +63,7 @@ bot.on('message', async message => {
    
 bot.on('ready', () => {
   console.log('Запущен, сэр!'); 
-  bot.user.setPresence({
-         status: "online",
-         game: {
-             name: "нервы Фокса",
-             url: "https://www.youtube.com/watch?v=5iYY-Lyr3DY",
-             type: "STREAMING"
-         }
-     }); 
+  bot.user.setActivity(`🔖Отвечает на вопросы...`, {type: 4})
 });
 
 bot.login(process.env.BOT_TOKEN);  
