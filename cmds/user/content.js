@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 exports.run = async (bot, message, args) => { 
-    message.reply('**ссылки на скачивание контента наших серверов:**\n`Контент DarkRP` - https://steamcommunity.com/sharedfiles/filedetails/?id=1258532420\n`Контент SCP-RP` - https://steamcommunity.com/workshop/filedetails/?id=1575404086\n`Контент MilitaryRP` - https://steamcommunity.com/sharedfiles/filedetails/?id=2043670984');
+    message.reply('**ссылки на скачивание контента наших серверов:**\n`Контент DarkRP` - https://vk.cc/8v2keP\n`Контент SCP-RP` - https://vk.cc/8SO3ho\n`Контент MilitaryRP` - https://vk.cc/auIPwZ');
 };
 module.exports.command = {
     name: 'content',
