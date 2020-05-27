@@ -63,7 +63,7 @@ bot.on('message', async message => {
    
 bot.on('ready', () => {
   console.log('Запущен, сэр!'); 
-  bot.user.setActivity(`🔖Отвечает на вопросы...`, {type: 4})
+  bot.user.setActivity(`🔖Отвечает на вопросы...`, {type: 4}) 
 });
 
 bot.login(process.env.BOT_TOKEN);  
