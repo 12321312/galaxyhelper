@@ -5,7 +5,7 @@ exports.run = async (bot, message, args) => {
 };
 module.exports.command = {
     name: 'nabor',
-    aliases: ["набор", "наборвадмины", "наборбл"],
+    aliases: ["набор", "заявки", "наборбл"],
     description: "Показывает пинг, чо доебался?",
     usage: "usercommand", 
     category: "user",
