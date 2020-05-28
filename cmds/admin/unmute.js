@@ -12,13 +12,13 @@ if (!tomute.roles.find('name', "мут")) return message.reply('Он не в м�
 connection.query(`SELECT * FROM mute WHERE id = '${tomute.id}'`, async (err, rows) => {
 
 let unmuterole = message.guild.roles.find('name', "мут");
-let unmreason = args.slice(2).join(" ") || "--no reason--";
+let unmreason = args.slice(1).join(" ") || "--no reason--";
 
 let muteEmbed = new Discord.RichEmbed()
 .setDescription("Мут снят принудительно")
 .setTimestamp()
 .addField("Снят мут с:", `${tomute}`, true)
-.addField("Администратор:", `${message.author}`, false)
+.addField("Администратор:", `${message.author}`, true)
 .addField("Причина:", unmreason, false);
 
 
