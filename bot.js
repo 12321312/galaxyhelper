@@ -111,6 +111,7 @@ bot.on('guildMemberAdd', member => {
             console.log(`опа, новый участник(${member.user.id})`);     
          } else {
           let mutetime = rows[0].time;
+          let mutecause = rows[0].cause;
           let mutetimerole = member.guild.roles.find('name', "мут");
           member.addRole(mutetimerole);
           console.log('У ' + member.user.tag + ' был мут!');
@@ -123,7 +124,7 @@ bot.on('guildMemberAdd', member => {
           .addField("Был замучен:", `<@${member.user.id}>`, true)
           .addField("Был выдан:", `Автосистемой`, true)
           .addField("Время мута:", `${ms(mutetime)}`, true)
-          .addField("Причина:", `Пользователь перезашёл с мутом`, false);
+          .addField("Причина:", `Пользователь перезашёл с мутом\n **Причина мута: ${mutecause}**`, false);
           channellog.send({embed:pizdez});
       
           setTimeout(function(){
