@@ -104,4 +104,36 @@ bot.on('ready', () => {
      }); 
 });
 
+
+bot.on('guildMemberAdd', member => {
+    connection.query(`SELECT * FROM mute WHERE id = '${member.user.id}'`, (err, rows) => {
+        if(rows.length < 1) {
+            console.log(`опа, новый участник(${member.user.id})`);     
+         } else {
+          let mutetime = rows[0].time;
+          let mutetimerole = member.guild.roles.find('name', "мут");
+          member.addRole(mutetimerole);
+          console.log('У ' + member.user.tag + ' был мут!');
+
+
+          let channellog = bot.channels.get("712602863293169695");
+          let pizdez = new Discord.RichEmbed()
+          .setTitle("Автомут")
+          .setTimestamp()
+          .addField("Был замучен:", `<@${member.user.id}>`, true)
+          .addField("Был выдан:", `Автосистемой`, true)
+          .addField("Время мута:", `${ms(mutetime)}`, true)
+          .addField("Причина:", `Пользователь перезашёл с мутом`, false);
+          channellog.send({embed:pizdez});
+      
+          setTimeout(function(){
+            member.removeRole(mutetimerole);
+            let mutesqlq = `DELETE FROM mute WHERE id = '${tomute.id}'`  
+            connection.query(mutesqlq);
+          },mutetime);
+          };
+        };
+    });
+});
+
 bot.login(process.env.BOT_TOKEN);   
