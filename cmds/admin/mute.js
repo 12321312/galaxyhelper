@@ -28,13 +28,13 @@ let muteEmbed = new Discord.RichEmbed()
 .setDescription("Мут")
 .setTimestamp()
 .addField("Был замучен:", `${tomute}`, true)
-.addField("Администратор:", `${message.author}`, false)
-.addField("Канал:", message.channel, true)
+.addField("Администратор:", `${message.author}`, true)
+.addField("Канал:", message.channel, false)
 .addField("Время мута:", `${ms(ms(mutetime))}`, true)
 .addField("Причина:", mreason, false);
 
 await(tomute.addRole(muterole.id));
-message.channel.send('Пользователь' + `<@${tomute.id}>` + ' был замучен на `'+ `${ms(ms(mutetime))}` + '` по причине: **' + `${mreason}` + '**');
+//message.channel.send('Пользователь ' + `<@${tomute.id}>` + ' был замучен на `'+ `${ms(ms(mutetime))}` + '` по причине: **' + `${mreason}` + '**');
 mutechannel.send({embed:muteEmbed}); 
 
 let mutesql = `INSERT INTO mute (id, time, cause) VALUES ('${tomute.id}', '${ms(mutetime)}', '${mreason}')`
