@@ -37,7 +37,7 @@ await(tomute.addRole(muterole.id));
 message.channel.send('Пользователь' + `<@${tomute.id}>` + ' был замучен на `'+ `${ms(ms(mutetime))}` + '` по причине: **' + `${mreason}` + '**');
 mutechannel.send({embed:muteEmbed}); 
 
-let mutesql = `INSERT INTO mute (id, time, cause) VALUES ('${tomute.id}', ${ms(mutetime)}, ${mreason})`
+let mutesql = `INSERT INTO mute (id, time, cause) VALUES ('${tomute.id}', '${ms(mutetime)}', '${mreason}')`
 connection.query(mutesql);
 
 
