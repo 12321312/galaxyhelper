@@ -32,7 +32,6 @@ let muteEmbed = new Discord.RichEmbed()
 .addField("Администратор:", `${message.author}`, true);
 //.addField("Канал:", message.channel, false)
 if(mutetime == 0){ 
-mutetime == 9,461e+10;
 muteEmbed.addField("Время мута:", `Навсегда`, true);
 } else {
 muteEmbed.addField("Время мута:", `${ms(ms(mutetime))}`, true);
@@ -50,7 +49,7 @@ mutechannel.send({embed:muteEmbed});
 let mutesql = `INSERT INTO mute (id, time, cause) VALUES ('${tomute.id}', '${ms(mutetime)}', '${mreason}')`
 connection.query(mutesql);
 
-
+if(mutetime == 0) return;
 setTimeout(function(){
     tomute.removeRole(muterole.id);
     let unmutesqlq = `DELETE FROM mute WHERE id = '${tomute.id}'`  
