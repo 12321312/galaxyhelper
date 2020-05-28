@@ -28,7 +28,7 @@ let muteEmbed = new Discord.RichEmbed()
 .setDescription("Мут")
 .setTimestamp()
 .addField("Был замучен:", `${tomute}`, true)
-.addField("Администратор:", `${message.author}`, true)
+.addField("Администратор:", `${message.author}`, false)
 .addField("Канал:", message.channel, true)
 .addField("Время мута:", `${ms(ms(mutetime))}`, true)
 .addField("Причина:", mreason, false);
