@@ -35,7 +35,7 @@ let muteEmbed = new Discord.RichEmbed()
 
 let muteConEmbed = new Discord.RichEmbed()
 .setTimestamp()
-.addField("Был размучен:", `${tomute}`, true);
+.addField("Был снят мут из-за истечения срока:", `${tomute}`, true);
 
 await(tomute.addRole(muterole.id));
 //message.channel.send('Пользователь ' + `<@${tomute.id}>` + ' был замучен на `'+ `${ms(ms(mutetime))}` + '` по причине: **' + `${mreason}` + '**');
@@ -47,12 +47,12 @@ connection.query(mutesql);
 
 setTimeout(function(){
     tomute.removeRole(muterole.id);
-    let mutesqlq = `DELETE FROM mute WHERE id = '${tomute.id}';`  
-    connection.query(mutesqlq);
+    let unmutesqlq = `DELETE FROM mute WHERE id = '${tomute.id}';`  
+    connection.query(unmutesqlq);
     mutechannel.send({embed:muteConEmbed}); 
 },ms(mutetime));
 
-} else return message.reply("хз, он в базе есть, чёт наебнулось в общем.");
+} else return message.reply("хз, он в базе есть, чёт наебнулось в общем, идите нахуй");
 
 
 });
