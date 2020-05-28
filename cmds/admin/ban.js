@@ -40,7 +40,7 @@ exports.run = async (bot, message, args) => {
 
 if(bantime == 0) return;
 setTimeout(function(){
-message.guild.member(bUser).unban("Бан закончился");
+message.guild.unban(bUser);
 mutechannel.send({embed:unbanEmbed}); 
 },ms(bantime));
 };
