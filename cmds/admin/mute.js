@@ -47,7 +47,7 @@ connection.query(mutesql);
 
 setTimeout(function(){
     tomute.removeRole(muterole.id);
-    let unmutesqlq = `DELETE FROM mute WHERE id = '${tomute.id}';`  
+    let unmutesqlq = `DELETE FROM mute WHERE id = '${tomute.id}'`  
     connection.query(unmutesqlq);
     mutechannel.send({embed:muteConEmbed}); 
 },ms(mutetime));
