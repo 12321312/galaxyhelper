@@ -132,7 +132,6 @@ bot.on('guildMemberAdd', member => {
             connection.query(mutesqlq);
           },mutetime);
           };
-        };
     });
 });
 
