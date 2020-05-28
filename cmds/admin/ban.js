@@ -41,7 +41,7 @@ exports.run = async (bot, message, args) => {
 if(bantime == 0) return;
 setTimeout(function(){
 message.guild.unban(bUser);
-mutechannel.send({embed:unbanEmbed}); 
+banchannel.send({embed:unbanEmbed}); 
 },ms(bantime));
 };
 
