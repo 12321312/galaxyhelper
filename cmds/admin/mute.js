@@ -29,9 +29,13 @@ let muteEmbed = new Discord.RichEmbed()
 .setTimestamp()
 .addField("Был замучен:", `${tomute}`, true)
 .addField("Администратор:", `${message.author}`, true)
-.addField("Канал:", message.channel, false)
+//.addField("Канал:", message.channel, false)
 .addField("Время мута:", `${ms(ms(mutetime))}`, true)
 .addField("Причина:", mreason, false);
+
+let muteConEmbed = new Discord.RichEmbed()
+.setTimestamp()
+.addField("Был размучен:", `${tomute}`, true);
 
 await(tomute.addRole(muterole.id));
 //message.channel.send('Пользователь ' + `<@${tomute.id}>` + ' был замучен на `'+ `${ms(ms(mutetime))}` + '` по причине: **' + `${mreason}` + '**');
@@ -45,8 +49,12 @@ setTimeout(function(){
     tomute.removeRole(muterole.id);
     let mutesqlq = `DELETE FROM mute WHERE id = '${tomute.id}';`  
     connection.query(mutesqlq);
+    mutechannel.send({embed:muteConEmbed}); 
 },ms(mutetime));
-}
+
+} else return message.reply("хз, он в базе есть, чёт наебнулось в общем.");
+
+
 });
 
  
