@@ -46,6 +46,7 @@ setTimeout(function(){
     let mutesqlq = `DELETE FROM mute WHERE id = '${tomute.id}';`  
     connection.query(mutesqlq);
 },ms(mutetime));
+}
 });
 
 
