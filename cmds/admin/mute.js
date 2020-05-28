@@ -24,14 +24,20 @@ if(!mutechannel) return message.channel.send("Сбились настройки 
 let mutetime = args[1];
 if(!mutetime) return message.reply("время мута не указано.");
 
+
 let muteEmbed = new Discord.RichEmbed()
 .setDescription("Мут")
 .setTimestamp()
 .addField("Был замучен:", `${tomute}`, true)
-.addField("Администратор:", `${message.author}`, true)
+.addField("Администратор:", `${message.author}`, true);
 //.addField("Канал:", message.channel, false)
-.addField("Время мута:", `${ms(ms(mutetime))}`, true)
-.addField("Причина:", mreason, false);
+if(mutetime == 0){ 
+mutetime == 9,461e+10;
+muteEmbed.addField("Время мута:", `Навсегда`, true);
+} else {
+muteEmbed.addField("Время мута:", `${ms(ms(mutetime))}`, true);
+};
+muteEmbed.addField("Причина:", mreason, false);
 
 let muteConEmbed = new Discord.RichEmbed()
 .setTimestamp()
