@@ -122,11 +122,17 @@ bot.on('guildMemberAdd', member => {
           .setTitle("Автомут")
           .setTimestamp()
           .addField("Был замучен:", `<@${member.user.id}>`, true)
-          .addField("Был выдан:", `Автосистемой`, true)
-          .addField("Время мута:", `${ms(ms(mutetime))}`, true)
-          .addField("Причина:", `Пользователь перезашёл с мутом\n **Причина мута: ${mutecause}**`, false);
+          .addField("Был выдан:", `Автосистемой`, true);
+          if(mutetime == 0){ 
+          pizdez.addField("Время мута:", `Навсегда`, true);
+          } else {
+          pizdez.addField("Время мута:", `${ms(ms(mutetime))}`, true);
+          }
+          pizdez.addField("Причина:", `Пользователь перезашёл с мутом\n **Причина мута: ${mutecause}**`, false);
+          
           channellog.send({embed:pizdez});
-      
+          
+          if(mutetime == 0) return;
           setTimeout(function(){
             member.removeRole(mutetimerole);
             let mutesqlq = `DELETE FROM mute WHERE id = '${member.user.id}'`  
