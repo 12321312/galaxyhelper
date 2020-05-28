@@ -3,13 +3,10 @@ const fs = require("fs");
 const ms = require("ms"); 
 
 exports.run = async (bot, message, args) => { 
-
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!message.member.roles.some(r=>["Помощь проекта", "Команда сервера", "Менеджер проекта", "Discord-admin", "Куратор DarkRP", "Куратор SCP-RP", "Куратор MilitaryRP"].includes(r.name))) return message.reply('Отказано в доступе.');
     if(!bUser) return message.channel.send("нет такого пользователя!");
     if (!(args[1])) return message.reply("Не верно указано время, напиши так: ```!бан <юзер упоминание> <время> <причина>```");
-
-
-    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     let bReason = args.slice(2).join(" ") || "--no reason--";
 
 
