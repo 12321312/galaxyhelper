@@ -119,7 +119,7 @@ bot.on('guildMemberAdd', member => {
 
           let channellog = bot.channels.get("712602863293169695");
           let pizdez = new Discord.RichEmbed()
-          .setTitle("Автомут")
+          .setDescription("Автомут")
           .setTimestamp()
           .addField("Был замучен:", `<@${member.user.id}>`, true)
           .addField("Был выдан:", `Автосистемой`, true);
@@ -128,7 +128,7 @@ bot.on('guildMemberAdd', member => {
           } else {
           pizdez.addField("Время мута:", `${ms(ms(mutetime))}`, true);
           }
-          pizdez.addField("Причина:", `Пользователь перезашёл с мутом\n **Причина мута: ${mutecause}**`, false);
+          pizdez.addField("Причина:", `Пользователь перезашёл с мутом\n **Причина мута:** ${mutecause}`, false);
           
           channellog.send({embed:pizdez});
           
