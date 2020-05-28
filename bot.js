@@ -129,7 +129,7 @@ bot.on('guildMemberAdd', member => {
       
           setTimeout(function(){
             member.removeRole(mutetimerole);
-            let mutesqlq = `DELETE FROM mute WHERE id = '${tomute.id}'`  
+            let mutesqlq = `DELETE FROM mute WHERE id = '${member.user.id}'`  
             connection.query(mutesqlq);
           },mutetime);
           };
