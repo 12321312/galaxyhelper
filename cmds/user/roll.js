@@ -16,5 +16,5 @@ module.exports.command = {
     description: "Отправляет в канал какую-то дичь, чо доебался?",
     usage: "foxcommand",
     category: "fox",
-    enabled: false
+    enabled: true
 }; 
